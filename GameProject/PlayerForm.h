@@ -152,6 +152,8 @@ namespace GameProject {
 		this->Hide();
 		lvlOne->ShowDialog();
 		CertificateForm^ form2 = gcnew CertificateForm(textBox1->Text);
+		LevelThreeForm^ form3 = gcnew LevelThreeForm(textBox1->Text);
+		form3->ShowDialog();
 		form2->ShowDialog();
 	}
 

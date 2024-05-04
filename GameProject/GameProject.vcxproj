@@ -122,6 +122,8 @@
   <ItemGroup>
     <ClCompile Include="CertificateForm.cpp" />
     <ClCompile Include="GameMenuForm.cpp" />
+    <ClCompile Include="LeaderboardForm.cpp" />
+    <ClCompile Include="LeaderForm.cpp" />
     <ClCompile Include="LevelOneForm.cpp" />
     <ClCompile Include="LevelThreeForm.cpp" />
     <ClCompile Include="LevelTwoForm.cpp" />
@@ -129,10 +131,17 @@
     <ClCompile Include="TicTacToeForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Desktop\quiz\QuizGame\QuizGame\user.h" />
     <ClInclude Include="CertificateForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GameMenuForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="LeaderboardForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="LeaderForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="LevelOneForm.h">
@@ -153,11 +162,15 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="..\..\..\..\Desktop\quiz\QuizGame\QuizGame\Leaderboard1.resx" />
     <EmbeddedResource Include="CertificateForm.resx">
       <DependentUpon>CertificateForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameMenuForm.resx">
       <DependentUpon>GameMenuForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LeaderForm.resx">
+      <DependentUpon>LeaderForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LevelOneForm.resx">
       <DependentUpon>LevelOneForm.h</DependentUpon>
@@ -179,6 +192,9 @@
     <Image Include="..\..\..\QUIZ GAME PROJECT\Bacteria GIF.gif" />
     <Image Include="..\..\..\QUIZ GAME PROJECT\Doctor Picture.jpg" />
     <Image Include="..\..\..\QUIZ GAME PROJECT\NEW CERTIFICATE (1).png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\..\Desktop\quiz\QuizGame\QuizGame\User.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

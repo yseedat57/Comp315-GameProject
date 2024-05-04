@@ -318,7 +318,7 @@ namespace GameProject {
 		{
 			MessageBox::Show("Loading Next Level...");
 			this->Hide();
-			LevelTwoForm^ lvlTwo = gcnew LevelTwoForm();
+			LevelTwoForm^ lvlTwo = gcnew LevelTwoForm(score);
 			lvlTwo->ShowDialog();
 		}
 

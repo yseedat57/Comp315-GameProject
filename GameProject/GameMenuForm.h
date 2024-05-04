@@ -1,6 +1,8 @@
 #pragma once
+
 #include "PlayerForm.h"
 #include "TicTacToeForm.h"
+#include "LeaderForm.h"
 
 namespace GameProject {
 
@@ -10,6 +12,7 @@ namespace GameProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO;
 
 
 
@@ -44,6 +47,7 @@ namespace GameProject {
 	private: System::Windows::Forms::Button^ TicTacToeBtn;
 	private: System::Windows::Forms::Button^ QuizBtn;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Button^ button1;
 
 	private:
 		/// <summary>
@@ -61,6 +65,7 @@ namespace GameProject {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(GameMenuForm::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->TicTacToeBtn = (gcnew System::Windows::Forms::Button());
 			this->QuizBtn = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
@@ -83,30 +88,46 @@ namespace GameProject {
 			// 
 			// tableLayoutPanel1
 			// 
-			this->tableLayoutPanel1->ColumnCount = 2;
+			this->tableLayoutPanel1->ColumnCount = 3;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				50)));
+				33)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				50)));
-			this->tableLayoutPanel1->Controls->Add(this->TicTacToeBtn, 1, 0);
-			this->tableLayoutPanel1->Controls->Add(this->QuizBtn, 0, 0);
+				31.4433F)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				35.56701F)));
+			this->tableLayoutPanel1->Controls->Add(this->button1, 0, 0);
+			this->tableLayoutPanel1->Controls->Add(this->TicTacToeBtn, 2, 0);
+			this->tableLayoutPanel1->Controls->Add(this->QuizBtn, 1, 0);
 			this->tableLayoutPanel1->Location = System::Drawing::Point(12, 369);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(582, 52);
 			this->tableLayoutPanel1->TabIndex = 1;
+			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::Color::IndianRed;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->Location = System::Drawing::Point(3, 3);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(186, 46);
+			this->button1->TabIndex = 2;
+			this->button1->Text = L"TIC TAC TOE";
+			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &GameMenuForm::button1_Click);
 			// 
 			// TicTacToeBtn
 			// 
 			this->TicTacToeBtn->BackColor = System::Drawing::Color::IndianRed;
 			this->TicTacToeBtn->Font = (gcnew System::Drawing::Font(L"Segoe UI", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TicTacToeBtn->Location = System::Drawing::Point(294, 3);
+			this->TicTacToeBtn->Location = System::Drawing::Point(377, 3);
 			this->TicTacToeBtn->Name = L"TicTacToeBtn";
-			this->TicTacToeBtn->Size = System::Drawing::Size(285, 46);
+			this->TicTacToeBtn->Size = System::Drawing::Size(202, 46);
 			this->TicTacToeBtn->TabIndex = 1;
-			this->TicTacToeBtn->Text = L"TIC TAC TOE";
+			this->TicTacToeBtn->Text = L"LEADERBOARD";
 			this->TicTacToeBtn->UseVisualStyleBackColor = false;
 			this->TicTacToeBtn->Click += gcnew System::EventHandler(this, &GameMenuForm::TicTacToeBtn_Click);
 			// 
@@ -115,9 +136,9 @@ namespace GameProject {
 			this->QuizBtn->BackColor = System::Drawing::Color::IndianRed;
 			this->QuizBtn->Font = (gcnew System::Drawing::Font(L"Segoe UI", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->QuizBtn->Location = System::Drawing::Point(3, 3);
+			this->QuizBtn->Location = System::Drawing::Point(195, 3);
 			this->QuizBtn->Name = L"QuizBtn";
-			this->QuizBtn->Size = System::Drawing::Size(285, 46);
+			this->QuizBtn->Size = System::Drawing::Size(176, 46);
 			this->QuizBtn->TabIndex = 0;
 			this->QuizBtn->Text = L"QUIZ";
 			this->QuizBtn->UseVisualStyleBackColor = false;
@@ -161,11 +182,15 @@ namespace GameProject {
 	}
 
 	private: System::Void TicTacToeBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-		TicTacToeForm^ tictactoe = gcnew TicTacToeForm();
-
+		LeaderForm^ leaderboard = gcnew LeaderForm();
 		this->Hide();
 
-		tictactoe->ShowDialog();
+		leaderboard->ShowDialog();
 	}
-	};
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		TicTacToeForm^ tic = gcnew TicTacToeForm();
+		this->Hide();
+		tic->ShowDialog();
+	}
+};
 }

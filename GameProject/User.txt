@@ -1,0 +1,10 @@
+player1#60
+player2#32
+player3#50
+player4#30
+player5#45
+player6#40
+player7#26
+player8#45
+player9#33
+player10#54

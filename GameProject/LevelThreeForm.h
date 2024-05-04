@@ -18,6 +18,7 @@ namespace GameProject {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace std;
+	using namespace System::IO;
 
 	extern int arr[10];
 	/// <summary>
@@ -28,6 +29,7 @@ namespace GameProject {
 	public:
 		int randomscenario = 0;
 		int finalrandom = 0;
+		String^ username;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	public:
 	private: System::Windows::Forms::RichTextBox^ richTextBox1;
@@ -48,6 +50,9 @@ namespace GameProject {
 	private: System::Windows::Forms::RadioButton^ radioButton1;
 	private: System::Windows::Forms::Button^ button1;
 		   int score;
+		   int totScore = 0;
+		   int level2score = 0;
+		   int level1score = 0;
 
 	public:
 
@@ -60,6 +65,35 @@ namespace GameProject {
 			//TODO: Add the constructor code here
 			//
 		}
+		LevelThreeForm(String^ data)
+		{
+			InitializeComponent();
+			username = data;
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+
+		LevelThreeForm(int score)
+		{
+			InitializeComponent();
+			this->label1->Text = score.ToString();
+			
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+		LevelThreeForm(int level1score, int level2score)
+		{
+			InitializeComponent();
+			
+			this->level1score = level1score;
+			this->level2score = level2score;
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+		
 
 	protected:
 		/// <summary>
@@ -476,10 +510,18 @@ namespace GameProject {
 
 
 			if (score >= 10) {
-				MessageBox::Show("Congradulations your final score is " + score + " out of 20. You passed this level, you're one step closer!");
+				totScore = level1score + level2score + score;
+				MessageBox::Show("Congradulations your level 3 score is " + score + " out of 20. You passed this level, you're one step closer!");
+				MessageBox::Show("Congradulations on completing the quiz your total score is " + totScore + " out of 46.");
 				//code used to link varaible
 				CertificateForm^ certificate = gcnew CertificateForm();
-				LevelThreeForm^ form1 = gcnew LevelThreeForm;
+				LevelThreeForm^ form1 = gcnew LevelThreeForm();
+				int temp = 0;
+				String^ file = "User.txt";
+				StreamWriter^ writer = gcnew StreamWriter(file);
+				writer->WriteLine(username + "#" + totScore);
+				writer->Close();
+				
 				form1->Close();
 				certificate->ShowDialog();
 			}
