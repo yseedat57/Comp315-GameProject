@@ -36,9 +36,6 @@
     <ClCompile Include="TicTacToeForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LeaderboardForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LeaderForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -71,9 +68,6 @@
     <ClInclude Include="..\..\..\..\Desktop\quiz\QuizGame\QuizGame\user.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LeaderboardForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LeaderForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -88,11 +82,6 @@
     <Image Include="..\..\..\QUIZ GAME PROJECT\NEW CERTIFICATE (1).png">
       <Filter>Resource Files</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="..\..\..\..\Desktop\quiz\QuizGame\QuizGame\Leaderboard1.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\..\..\Desktop\quiz\QuizGame\QuizGame\User.txt" />

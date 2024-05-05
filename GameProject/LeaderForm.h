@@ -196,8 +196,6 @@ namespace GameProject {
 #pragma endregion
 	private: System::Void Leaderboard_Load(System::Object^ sender, System::EventArgs^ e) {
 		label1->Parent = pictureBox1;
-
-	
 		String^ file = "User.txt";
 		cli::array<User^>^ users;
 		users= fillArray(file);

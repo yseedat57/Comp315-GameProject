@@ -15,6 +15,7 @@ namespace GameProject {
 	using namespace System::Drawing;
 
 	public ref class LevelOneForm : public System::Windows::Forms::Form {
+		String^ username;
 	public:
 		LevelOneForm(void)
 		{
@@ -23,6 +24,15 @@ namespace GameProject {
 			InitializeQuestionsAndAnswers();
 			ShuffleQuestions();
 			ShowQuestion();
+		}
+		LevelOneForm(String^ data)
+		{
+			InitializeComponent();
+			InitializeQuestionsAndAnswers();
+			ShuffleQuestions();
+			ShowQuestion();
+			this->username = data;
+			
 		}
 
 	protected:
@@ -318,7 +328,7 @@ namespace GameProject {
 		{
 			MessageBox::Show("Loading Next Level...");
 			this->Hide();
-			LevelTwoForm^ lvlTwo = gcnew LevelTwoForm(score);
+			LevelTwoForm^ lvlTwo = gcnew LevelTwoForm(score,username);
 			lvlTwo->ShowDialog();
 		}
 

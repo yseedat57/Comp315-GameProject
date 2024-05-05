@@ -16,18 +16,19 @@ namespace GameProject {
     public ref class LevelTwoForm : public System::Windows::Forms::Form
     {
         int level1score;
+        String^ username;
     public:
         LevelTwoForm(void)
         {
             InitializeComponent();
             InitializeQuiz();
         }
-        LevelTwoForm(int level1score)
+        LevelTwoForm(int level1score,String^ data)
         {
             InitializeComponent();
            
             this->level1score = level1score;
-           
+            this->username = data;
             //
             //TODO: Add the constructor code here
             //
@@ -324,7 +325,7 @@ namespace GameProject {
         void nextLevelButton_Click(System::Object^ sender, System::EventArgs^ e) {
             MessageBox::Show("Loading next level...");
             this->Hide();
-            LevelThreeForm^ lvlThree = gcnew LevelThreeForm(level1score,correctAnswer);
+            LevelThreeForm^ lvlThree = gcnew LevelThreeForm(level1score,correctAnswer,username);
             lvlThree->ShowDialog();
         }
 

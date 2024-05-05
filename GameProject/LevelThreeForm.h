@@ -68,13 +68,7 @@ namespace GameProject {
 		LevelThreeForm(String^ data)
 		{
 			InitializeComponent();
-			int temp = 0;
 			
-			String^ file = "User.txt";
-			StreamWriter^ writer = File::AppendText(file);
-			writer->WriteLine(data + "#");
-			writer->Close();
-			//
 			//TODO: Add the constructor code here
 			//
 		}
@@ -89,12 +83,13 @@ namespace GameProject {
 			//TODO: Add the constructor code here
 			//
 		}
-		LevelThreeForm(int level1score, int level2score)
+		LevelThreeForm(int level1score, int level2score, String^ data)
 		{
 			InitializeComponent();
 			
 			this->level1score = level1score;
 			this->level2score = level2score;
+			this->username = data->Trim();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -520,17 +515,17 @@ namespace GameProject {
 				MessageBox::Show("Congradulations your level 3 score is " + score + " out of 20. You passed this level, you're one step closer!");
 				MessageBox::Show("Congradulations on completing the quiz your total score is " + totScore + " out of 46.");
 				//code used to link varaible
-				//CertificateForm^ certificate = gcnew CertificateForm();
+				CertificateForm^ certificate = gcnew CertificateForm(username);
 				LevelThreeForm^ form1 = gcnew LevelThreeForm();
 				int temp = 0;
 
 				String^ file = "User.txt";
 				StreamWriter^ writer = File::AppendText(file);
-				writer->Write(totScore);
+				writer->WriteLine(username +"#" + totScore);
 				writer->Close();
 				form1->Close();
 				form1->Hide();
-				//certificate->ShowDialog();
+				certificate->ShowDialog();
 			}
 			else {
 				MessageBox::Show("We regret to inform you that your score is  " + score + " out of 20. You are not qualified enough to be a doctor.");

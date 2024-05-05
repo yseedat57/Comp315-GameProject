@@ -122,7 +122,6 @@
   <ItemGroup>
     <ClCompile Include="CertificateForm.cpp" />
     <ClCompile Include="GameMenuForm.cpp" />
-    <ClCompile Include="LeaderboardForm.cpp" />
     <ClCompile Include="LeaderForm.cpp" />
     <ClCompile Include="LevelOneForm.cpp" />
     <ClCompile Include="LevelThreeForm.cpp" />
@@ -136,9 +135,6 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GameMenuForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="LeaderboardForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="LeaderForm.h">
@@ -162,7 +158,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\..\..\..\Desktop\quiz\QuizGame\QuizGame\Leaderboard1.resx" />
     <EmbeddedResource Include="CertificateForm.resx">
       <DependentUpon>CertificateForm.h</DependentUpon>
     </EmbeddedResource>

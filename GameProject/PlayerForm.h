@@ -149,12 +149,11 @@ namespace GameProject {
 #pragma endregion
 	private: System::Void ConfirmBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		CertificateForm^ form2 = gcnew CertificateForm(textBox1->Text);
-		LevelOneForm^ lvlOne = gcnew LevelOneForm();
+		LevelOneForm^ lvlOne = gcnew LevelOneForm(textBox1->Text);
 		this->Hide();
 		lvlOne->ShowDialog();
-		LevelThreeForm^ form3 = gcnew LevelThreeForm(textBox1->Text);
-		form2->ShowDialog();
-		form3->ShowDialog();
+		//form2->ShowDialog();
+		
 	}
 
 	private: System::Void ClearBtn_Click(System::Object^ sender, System::EventArgs^ e) {
