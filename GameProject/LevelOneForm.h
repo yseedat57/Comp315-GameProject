@@ -284,7 +284,7 @@ namespace GameProject {
 				// Change the image and message based on the score
 				if (score >= 5)
 				{
-					label2->Text = "Well Done!";
+					label2->Text = "Well Done! You can proceed to the next level!";
 					nextLevelButton->Visible = true;
 				}
 				else

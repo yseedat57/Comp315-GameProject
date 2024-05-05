@@ -260,7 +260,7 @@ namespace GameProject {
             answers->Add("Melanin");
 
             currentQuestionIndex = -1;
-            NextQuestion(); // Load the first question
+            
         }
 
         void RestartQuiz()
@@ -332,6 +332,8 @@ namespace GameProject {
             RestartQuiz();
         }
     private: System::Void LevelTwoForm_Load(System::Object^ sender, System::EventArgs^ e) {
+        InitializeQuiz();
+        NextQuestion(); // Load the first question
     }
     };
 }

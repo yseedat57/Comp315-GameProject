@@ -68,11 +68,17 @@ namespace GameProject {
 		LevelThreeForm(String^ data)
 		{
 			InitializeComponent();
-			username = data;
+			int temp = 0;
+			
+			String^ file = "User.txt";
+			StreamWriter^ writer = File::AppendText(file);
+			writer->WriteLine(data + "#");
+			writer->Close();
 			//
 			//TODO: Add the constructor code here
 			//
 		}
+		
 
 		LevelThreeForm(int score)
 		{
@@ -514,16 +520,17 @@ namespace GameProject {
 				MessageBox::Show("Congradulations your level 3 score is " + score + " out of 20. You passed this level, you're one step closer!");
 				MessageBox::Show("Congradulations on completing the quiz your total score is " + totScore + " out of 46.");
 				//code used to link varaible
-				CertificateForm^ certificate = gcnew CertificateForm();
+				//CertificateForm^ certificate = gcnew CertificateForm();
 				LevelThreeForm^ form1 = gcnew LevelThreeForm();
 				int temp = 0;
+
 				String^ file = "User.txt";
-				StreamWriter^ writer = gcnew StreamWriter(file);
-				writer->WriteLine(username + "#" + totScore);
+				StreamWriter^ writer = File::AppendText(file);
+				writer->Write(totScore);
 				writer->Close();
-				
 				form1->Close();
-				certificate->ShowDialog();
+				form1->Hide();
+				//certificate->ShowDialog();
 			}
 			else {
 				MessageBox::Show("We regret to inform you that your score is  " + score + " out of 20. You are not qualified enough to be a doctor.");
@@ -681,7 +688,6 @@ namespace GameProject {
 
 	}
 	private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
-
 		int counter = 0;
 		if ((this->radioButton1->Checked == false) && (this->radioButton2->Checked == false) && (this->radioButton3->Checked == false) && (this->radioButton4->Checked == false) && (this->radioButton5->Checked == false))
 		{

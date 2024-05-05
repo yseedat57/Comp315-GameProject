@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 
+
 namespace GameProject {
 
 	using namespace System;
@@ -119,6 +120,7 @@ namespace GameProject {
 			this->Text = L"                                                                                 "
 				L"              CERTIFICATE";
 			this->Load += gcnew System::EventHandler(this, &CertificateForm::CertificateForm_Load);
+			this->Leave += gcnew System::EventHandler(this, &CertificateForm::CertificateForm_Leave);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -134,5 +136,8 @@ namespace GameProject {
 
 		// Takes user to the main menu link the main menu to this button
 	}
-	};
+	private: System::Void CertificateForm_Leave(System::Object^ sender, System::EventArgs^ e) {
+		
+	}
+};
 }
